@@ -165,7 +165,7 @@ custom_ylabel = st.sidebar.text_input(
 
 custom_title = st.sidebar.text_input(
     "Plot title",
-    value="Group Distributions")
+    value="Distributions")
 
 # Checkbox to show significance
 show_significance = st.sidebar.checkbox(
@@ -176,7 +176,7 @@ show_significance = st.sidebar.checkbox(
 #########################
 # PLOT SECTION
 #########################
-st.subheader("Group Distributions")
+st.subheader("Fast exploration of survey-style CSV data")
 
 if st.session_state.groups:# and len(st.session_state.groups) >= 2: Deprecated, we can also only plot 1
 
@@ -279,4 +279,5 @@ elif st.session_state.groups:
     st.info("Add at one group to see a plot.")
 
 else:
-    st.info("Upload a CSV and create groups to see the plot.")
+    st.info("Upload a CSV, define your interest groups and filter them with simple operations.  \nSurWeys automatically creates distribution plots for a fast data exploration.  \n* Now customizable with color palettes and integrated significante tests!!")
+    st.info("Example:  \n* Filter column 'Age'<=35 → Extract 'Income'→ New group 'Junior Income'  \n* Filter column 'Age'>35 → Extract 'Income' → New group 'Senior Income' \n* A violin-plot distribution is automatically generated, that you can tweak later  \n* Define as many sub-groups as you want!")
