@@ -5,7 +5,6 @@ Tailored for the exploration of survey data as usually found in consumer researc
 
 * No installation necessary, deployed in StreamLit cloud.
 
-* Access it through:
-```
+* Access it through the link:
 [SurWeys in SL Cloud](https://surweys.streamlit.app/)
-```
+
