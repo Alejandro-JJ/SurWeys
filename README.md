@@ -7,5 +7,5 @@ Tailored for the exploration of survey data as usually found in consumer researc
 
 * Access it through:
 ```
-https://surweys.streamlit.app/
+[SurWeys in SL Cloud](https://surweys.streamlit.app/)
 ```
