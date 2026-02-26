@@ -53,11 +53,17 @@ st.sidebar.header("Data & Grouping")
 ##############################
 
 file = st.sidebar.file_uploader("Upload your CSV file", type=["csv"])
-skip_rows = st.sidebar.number_input("Skip first N lines", min_value=0, value=0, step=1)
+#skip_rows = st.sidebar.number_input("Skip first N lines", min_value=0, value=0, step=1)
+col1, col2 = st.sidebar.columns(2)
+with col1:
+    skip_rows = st.number_input("Skip first N lines", min_value=0, value=0, step=1)
+with col2:
+    separator = st.text_input("Separator", value=';')
+
 
 if file:
     try:
-        df = pd.read_csv(file, skiprows=skip_rows, sep=';')
+        df = pd.read_csv(file, skiprows=skip_rows, sep=separator)
         df = df.applymap(convert_single_digit) # Now all numbers are numbers
         st.sidebar.success(f"CSV loaded: {df.shape[0]} rows x {df.shape[1]} columns")
     except Exception as e:
@@ -176,7 +182,9 @@ show_significance = st.sidebar.checkbox(
 #########################
 # PLOT SECTION
 #########################
-st.subheader("Fast exploration of survey-style CSV data")
+st.subheader("Fast exploration of numeric CSV datasets")
+# dummy variable
+plot_type="Violin"
 
 if st.session_state.groups:# and len(st.session_state.groups) >= 2: Deprecated, we can also only plot 1
 
